@@ -29,11 +29,15 @@
   "homepage": "https://github.com/takayama-lily/oicq#readme",
   "changelogs": "https://github.com/takayama-lily/oicq/releases",
   "dependencies": {
+    "iconv-lite": "^0.6.3",
     "jce": "^0.2.3",
     "log4js": "^6.3.0",
     "long": "^4.0.0",
     "probe-image-size": "^7.2.0",
-    "redis": "^3.1.2"
+    "redis": "^3.1.2",
+    "request": "^2.88.2",
+    "superagent": "^6.1.0",
+    "superagent-charset": "^1.2.0"
   },
   "devDependencies": {
     "@types/probe-image-size": "^7.0.0",
