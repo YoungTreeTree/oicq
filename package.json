@@ -34,6 +34,7 @@
     "log4js": "^6.3.0",
     "long": "^4.0.0",
     "probe-image-size": "^7.2.0",
+    "puppeteer": "^10.1.0",
     "redis": "^3.1.2",
     "request": "^2.88.2",
     "superagent": "^6.1.0",
