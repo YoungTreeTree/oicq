@@ -159,7 +159,7 @@ bot.on('message.group', async (data) => {
             console.log(code);
             var index = selected.indexOf(code);
             if (index > -1) {
-                selected.splice(index, index)
+                selected.splice(index, 1)
             }
             client.set("selected", JSON.stringify(selected));
         }
