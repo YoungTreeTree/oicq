@@ -148,8 +148,24 @@ bot.on('message.group', async (data) => {
         }
         if (data.raw_message.startsWith('添加')) {
             if (data.user_id != 1620644350) {
-                selected.push(data.raw_message.split(' ')[1]);
-                client.set("selected", JSON.stringify(selected));
+                var code = data.raw_message.split(' ')[1];
+                if(code != '' && code != null) {
+                    var url = `http://hq.sinajs.cn/list=${code}`;
+                    request.get(url)
+                           .charset('GB18030')
+                           .end(function (err, res) {
+                            if(!err){
+                                var content  = stockReg.exec(text);
+                                if(content){
+                                    var reqs = content[1].split(',');
+                                    if(reqs.length > 1) {
+                                         selected.push(code);
+                                         client.set("selected", JSON.stringify(selected));
+                                    }
+                                }
+                            }
+                    });
+                }
             } else {
                 bot.sendGroupMsg(data.group_id, `${data.sender.title || data.sender.card ? data.sender.card : data.sender.nickname} 不许加！！`);
             }
