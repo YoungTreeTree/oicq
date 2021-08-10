@@ -83,7 +83,7 @@ bot.on('message.group', async (data) => {
             }
             bot.sendGroupMsg(data.group_id, message);
         }
-        if (data.raw_message && (data.raw_message.startsWith('sz') || data.raw_message.startsWith('sh'))) {
+        if (data.raw_message && (data.raw_message.startsWith('sz') || data.raw_message.startsWith('sh') && !(data.raw_message.startsWith('shx')))) {
             const browser = await puppeteer.launch();
             const page = await browser.newPage();
             await page.setViewport({
