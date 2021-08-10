@@ -97,32 +97,41 @@ bot.on('message.group', async (data) => {
             bot.sendGroupMsg(data.group_id, `[CQ:image,file=example.png]`);
         }
         if (data.raw_message && (data.raw_message.startsWith('douyu'))) {
-            const browser = await puppeteer.launch({ executablePath: "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",headless:false});
-            const page = await browser.newPage();
-            await page.setViewport({
-                width: 2048,
-                height: 1080,
-                deviceScaleFactor: 1,
-            });
-            await page.goto('https://www.douyu.com/' + data.raw_message.split('douyu')[1]);
-            await page.waitForTimeout(5000);
-            await page.screenshot({path: 'example.png'});
-            await browser.close();
-            bot.sendGroupMsg(data.group_id, `[CQ:image,file=example.png]`);
+            try {
+                const browser = await puppeteer.launch({ executablePath: "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",headless:false});
+                const page = await browser.newPage();
+                await page.setViewport({
+                    width: 2048,
+                    height: 1080,
+                    deviceScaleFactor: 1,
+                });
+                await page.goto('https://www.douyu.com/' + data.raw_message.split('douyu')[1]);
+                await page.waitForTimeout(5000);
+                await page.screenshot({path: 'example.png'});
+                await browser.close();
+                bot.sendGroupMsg(data.group_id, `[CQ:image,file=example.png]`);
+            } catch (error) {
+                
+            }
         }
         if (data.raw_message && (data.raw_message.startsWith('屁小将'))) {
-            const browser = await puppeteer.launch({ executablePath: "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",headless:false});
-            const page = await browser.newPage();
-            await page.setViewport({
-                width: 2048,
-                height: 1080,
-                deviceScaleFactor: 1,
-            });
-            await page.goto('https://www.douyu.com/4496540',);
-            await page.waitForTimeout(5000);
-            await page.screenshot({ path: 'example.png' });
-            await browser.close();
-            bot.sendGroupMsg(data.group_id, `[CQ:image,file=example.png]`);
+            try {
+                const browser = await puppeteer.launch({ executablePath: "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",headless:false});
+                const page = await browser.newPage();
+                await page.setViewport({
+                    width: 2048,
+                    height: 1080,
+                    deviceScaleFactor: 1,
+                });
+                await page.goto('https://www.douyu.com/4496540',);
+                await page.waitForTimeout(5000);
+                await page.screenshot({ path: 'example.png' });
+                await browser.close();
+                bot.sendGroupMsg(data.group_id, `[CQ:image,file=example.png]`);
+            } catch (error) {
+                
+            }
+            
         }
         if (data.raw_message == '自选' || data.raw_message == '送钱') {
             var message = '';
