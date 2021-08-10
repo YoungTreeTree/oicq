@@ -9,8 +9,8 @@ const redis = require("redis");
 const client = redis.createClient({
     host: '47.100.214.170',
     port: '1233',
-    password: process.env.redisPW,
-    //password: 'Yq911916',
+    // password: process.env.redisPW,
+    password: 'Yq911916',
 });
 
 client.on("error", function(error) {
@@ -149,12 +149,13 @@ bot.on('message.group', async (data) => {
         if (data.raw_message.startsWith('添加')) {
             if (data.user_id != 1620644350) {
                 var code = data.raw_message.split(' ')[1];
-                if(code != '' && code != null) {
+                if(code != '' && code != null && selected.indexOf(code) == -1) {
                     var url = `http://hq.sinajs.cn/list=${code}`;
                     request.get(url)
                            .charset('GB18030')
                            .end(function (err, res) {
                             if(!err){
+                                var text  = res.text;
                                 var content  = stockReg.exec(text);
                                 if(content){
                                     var reqs = content[1].split(',');
