@@ -35,7 +35,7 @@ const puppeteer = require('puppeteer');
 
 
 bot.on('message.group', async (data) => {
-    if (whiteListGroup.indexOf(data.group_id) > -1 && data.user_id != 474470571) {
+    if (whiteListGroup.indexOf(data.group_id) > -1 && data.user_id != num) {
         if (data.raw_message == '加班') {
             if (data.user_id != 1620644350) {
                 record[data.user_id] = {
